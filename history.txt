@@ -1,1 +1,2 @@
   355  rails _7.0.4_ new hotwire-chat -c tailwind
+  362  rails g scaffold room name:string
