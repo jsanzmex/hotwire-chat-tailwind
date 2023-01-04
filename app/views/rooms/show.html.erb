@@ -25,7 +25,9 @@
     </div>
 
     <div class="mx-auto">
-      <%= link_to "New Message", new_room_message_path(@room), class: "rounded-lg py-3 px-5 bg-blue-600 text-white block font-medium"%>
+      <%# Note that without the [target: "_top"] parameter, the new message form does not show up after submitting a new message. %>
+      <%# Also note adding a new message re-renders the whole page. It does not append the new message dom to the page. %>
+      <%= turbo_frame_tag "new_message", src: new_room_message_path(@room), target: "_top" %>
     </div>
   </div>
 
