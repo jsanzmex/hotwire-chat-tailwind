@@ -1,24 +1,7 @@
-# README
+# Hotwire Chat
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Demos Hotwire and Stimulus with a simple real-time chat application.
 
-Things you may want to cover:
+To test the demo run `bin/dev` then browse to:
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+http://127.0.0.1:3000/rooms
