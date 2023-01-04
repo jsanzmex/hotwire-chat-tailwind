@@ -9,7 +9,9 @@ class MessagesController < ApplicationController
     @message = @room.messages.create!(message_params)
 
     respond_to do |format|
-      format.html { redirect_to @room, notice: 'Message was successfully created.' }
+      # removing notice, it won't be necessary after implementing Hotwire
+      # format.html { redirect_to @room, notice: 'Message was successfully created.' }
+      format.html { redirect_to @room }
     end
   end
 
