@@ -1,23 +1,33 @@
-<div class="mx-auto md:w-2/3 w-full flex">
-  <div class="mx-auto">
-    <% if notice.present? %>
-      <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
-    <% end %>
+<div class="flex-col">
 
-    <%= render @room %>
+  <div class="mx-auto max-w-md md:max-w-2xl w-full flex">
+      <% if notice.present? %>
+        <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
+      <% end %>
 
-    <%= link_to 'Edit this room', edit_room_path(@room), class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
-    <div class="inline-block ml-2">
-      <%= button_to 'Destroy this room', room_path(@room), method: :delete, class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 font-medium" %>
+      <%# Know using frames will make link buttons (that are usually block-inline, i.e. together) break because only the "Update" button needs to be inside the frame. %>
+      <%= turbo_frame_tag "room" do %>
+        <%= render @room %>
+
+        <%= link_to 'Edit this room', edit_room_path(@room), class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+        <%= link_to 'Back to rooms', rooms_path, class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium", "data-turbo-frame": "_top" %>
+        <div class="inline-block ml-2">
+          <%= button_to 'Destroy this room', room_path(@room), method: :delete, class: "mt-2 rounded-lg py-3 px-5 bg-red-600 font-medium text-white" %>
+        </div>
+      <% end %>
+  </div>
+
+  <h2 class="mt-20 mb-6 font-medium">Messages</h2>
+
+  <div class="mx-auto max-w-md md:max-w-2xl w-full flex">
+    <div id="messages">
+      <%= render @room.messages %>
     </div>
-    <%= link_to 'Back to rooms', rooms_path, class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
-  </div>
-  
-  <div id="messages">
-    <%= render @room.messages %>
+
+    <div class="mx-auto">
+      <%= link_to "New Message", new_room_message_path(@room), class: "rounded-lg py-3 px-5 bg-blue-600 text-white block font-medium"%>
+    </div>
   </div>
 
-  <div class="mx-auto">
-    <%= link_to "New Message", new_room_message_path(@room), class: "rounded-lg py-3 px-5 bg-blue-600 text-white block font-medium"%>
-  </div>
 </div>
+
