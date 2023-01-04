@@ -2,7 +2,10 @@
     <h1 class="font-bold text-4xl">New Message</h1>
 
     <%= turbo_frame_tag "new_message" do %>
-        <%= form_with(model: [ @message.room, @message], class: "contents") do |form| %>
+        <%= form_with(
+            model: [ @message.room, @message],
+            class: "contents",
+            data: { controller: "reset-form", action: "turbo:submit-end->reset-form#reset" }) do |form| %>
             <div class="field my-5">
                 <%= form.label :message %>
                 <%= form.text_field :content, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
