@@ -18,6 +18,18 @@ If the Stimulus Controller is named `reset_form_controller.js`, then you shpuld 
 controller: "reset-form", action: "turbo:submit-end->reset-form#reset
 ```
 
+# About Redis and ActionCable
+
+Action Cable is no longer a gem you have to add, it is already included in every Rails project.
+So in order to leverage the power of Action Cable in your project you just have to make sure Redis is up and running.
+You can esasily spin-up a Redis instance with docker just run this command:
+
+```sh
+docker run --name some-redis -p 6379:6379 --rm redis
+```
+
+The advantage of above's command is that the Redis instance is stoppend and removed on closing/stopping the terminal.
+
 # What are Shims and Polyfills
 
 ## Shim

@@ -5,6 +5,8 @@
         <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
       <% end %>
 
+      <%= turbo_stream_from @room %>
+
       <%# Know using frames will make link buttons (that are usually block-inline, i.e. together) break because only the "Update" button needs to be inside the frame. %>
       <%= turbo_frame_tag "room" do %>
         <%= render @room %>
