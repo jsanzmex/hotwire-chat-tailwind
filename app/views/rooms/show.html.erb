@@ -7,7 +7,7 @@
 
       <%= turbo_stream_from @room %>
 
-      <%# Know using frames will make link buttons (that are usually block-inline, i.e. together) break because only the "Update" button needs to be inside the frame. %>
+      <%# Know using frames will make link buttons (that are usually block-inline, i.e. look together) break because only the "Update" button needs to be inside the frame. %>
       <%= turbo_frame_tag "room" do %>
         <%= render @room %>
 
