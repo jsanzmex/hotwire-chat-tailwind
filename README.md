@@ -12,7 +12,7 @@ The new Rails-Stimulus integration shim ships with an autoloader for your contro
 
 # Naming Stimulus Controllers
 
-If the Stimulus Controller is named `reset_form_controller.js`, then you shpuld invoke it like this in your Rails views:
+If the Stimulus Controller is named `reset_form_controller.js`, then you should invoke it like this in your Rails views:
 
 ```ruby
 controller: "reset-form", action: "turbo:submit-end->reset-form#reset
